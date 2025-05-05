@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: canary-server
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
