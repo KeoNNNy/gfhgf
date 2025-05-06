@@ -1,6 +1,5 @@
 from flask import Flask, send_file, request
-from datetime import datetime
-import pytz
+from datetime import datetime, timedelta
 import telebot
 import io
 
@@ -12,9 +11,7 @@ telegram_id = "635229106"
 def canary():
     ip = request.remote_addr
 
-    # Используем часовой пояс Asia/Almaty
-    timezone = pytz.timezone("Asia/Almaty")
-    timestamp = datetime.now(timezone).strftime('%Y-%m-%d %H:%M:%S')
+    timestamp = (datetime.utcnow() + timedelta(hours=5)).strftime('%Y-%m-%d %H:%M:%S')
 
     bot.send_message(telegram_id, f"🐤 Канарейка сработала!\n🕓 Время: {timestamp}\n🌐 IP: {ip}")
 
@@ -24,6 +21,10 @@ def canary():
     img_bytes.seek(0)
 
     return send_file(img_bytes, mimetype='image/png')
-
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
+куда нужно вставить это?
+
+from datetime import datetime
+import pytz
