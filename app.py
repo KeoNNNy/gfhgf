@@ -4,8 +4,8 @@ import telebot
 import io
 
 app = Flask(__name__)
-bot = telebot.TeleBot("7717172606:AAEiScGFPRLzIH2hFQ0oCVf2d6WFZIY1W3Y")
-telegram_id = "635229106"
+bot = telebot.TeleBot("77672606:ABEFPzIH2hFVf2d6WFZIY1W3Y")
+telegram_id = "635306"
 
 @app.route('/canary')
 def canary():
@@ -23,5 +23,6 @@ def canary():
     return send_file(img_bytes, mimetype='image/png')
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
 
 
